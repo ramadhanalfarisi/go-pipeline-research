@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    container_name: pipeline_golang
+    image: golang:latest
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - api_volume:/usr/src/app
+    networks:
+      - gc-network
+volumes:
+  api_volume:
+networks:
+  gc-network:
